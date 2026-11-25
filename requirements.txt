@@ -1,0 +1,13 @@
+evaluate==0.4.3
+nltk==3.9.1
+numpy==1.26.4
+pandas==1.5.3
+pyarrow==19.0.1
+sacrebleu==2.5.1
+safetensors==0.5.3
+scikit-learn==1.6.1
+scipy==1.13.1
+sentence-transformers==4.1.0
+tokenizers==0.21.1
+torch==2.6.0
+transformers==4.51.3

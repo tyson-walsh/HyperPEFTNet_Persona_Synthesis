@@ -1,0 +1,3 @@
+weights/backbone_pythia_160m/model.safetensors
+__pycache__/
+*.pyc

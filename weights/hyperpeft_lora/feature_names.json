@@ -1,0 +1,8 @@
+[
+  "gstat_firstperson_ratio",
+  "gstat_punct_ratio",
+  "gstat_question_ratio",
+  "gstat_user_sr_max_share",
+  "gstat_user_subreddit_entropy",
+  "gstat_user_ttr"
+]
