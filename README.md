@@ -9,7 +9,7 @@ HyperPEFTNet gives every user of a language model their own persona without stor
 | folder | contents |
 |---|---|
 | `data/` | the six-number descriptor of each of the 10,000 users, and the three cohort label files the probes use |
-| `weights/hyperpeft_lora/` | the trained HyperPEFT-LoRA generator, its input order, its training settings, and its two learned reply-boundary rows |
+| `weights/hyperpeft_lora/` | the trained HyperPEFT-LoRA generator, its input order, its training settings, and its learned reply-boundary rows |
 | `weights/shared_heads/` | the four shared PEFT heads the paper compares against: LoRA, bottleneck adapter, bias-only and prefix |
 | `weights/backbone_pythia_160m/` | the backbone's configuration and tokenizer; its weights file is attached to the GitHub release |
 | `training/` | the training scripts for the generator and for the shared heads |
@@ -36,7 +36,7 @@ The users were drawn from the public Pushshift Reddit archive for 2010 to 2016.
 ## The weights
 
 - `weights/hyperpeft_lora/final_hypernet.safetensors`: the generator at the end of training (two passes over all 10,000 users). It writes LoRA offsets for the query, key and value projections of every layer.
-- `weights/hyperpeft_lora/train_checkpoints/checkpoint_last.pt`: the two reply-boundary rows HyperPEFT-LoRA learns in the token embedding and the LM head. The evaluation script loads them from this path.
+- `weights/hyperpeft_lora/train_checkpoints/checkpoint_last.pt`: the reply-boundary rows HyperPEFT-LoRA learns for its two boundary tokens, in the token embedding and in the LM head (four rows, 3,072 values). The evaluation script loads them from this path.
 - `weights/shared_heads/<head>/peft_placeholders.safetensors`: one shared head per PEFT family, trained on all users with the same data and schedule.
 - `weights/backbone_pythia_160m/`: the frozen backbone is EleutherAI's Pythia-160M. Its weights file, `model.safetensors` (649,308,728 bytes, SHA-256 `b0942f4b31d83c5bc1e7f97785900e5c9566d11bd7901bce1b28f8eb5750c0c4`), is attached to this repository's GitHub release. Place it in this folder before running the scripts.
 
