@@ -11,3 +11,7 @@ sentence-transformers==4.1.0
 tokenizers==0.21.1
 torch==2.6.0
 transformers==4.51.3
+bert-score==0.3.13
+matplotlib==3.9.4
+rouge-score==0.1.2
+# optional: umap-learn draws the UMAP projections; without it the probe plots fall back to PCA
