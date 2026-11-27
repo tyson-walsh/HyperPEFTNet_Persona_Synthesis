@@ -58,7 +58,7 @@ python evaluation/validate_models_10000.py --help
 The held-out-reply experiments need the conversation corpus itself, which is not redistributed:
 
 1. Build each user's features and the cohort labels from your own copy of the corpus with `data_scripts/hypernetwork_feature_builder_10000.py` and `data_scripts/create_labels.py`.
-2. Train the generator with `training/train_hypernet_160M.py` and the shared heads with `training/train_nonhypernet_10000.py`.
+2. Train a generator with `training/train_hypernet_160M.py --peft_head lora` (or `adapter`, `bias`, `prefix`) and the shared heads with `training/train_nonhypernet_10000.py`. Every generator reads the same six descriptor features, in the order of `weights/hyperpeft_lora/feature_names.json`; `weights/hyperpeft_lora/args.json` lists the settings HyperPEFT-LoRA was trained with.
 3. Score held-out replies with `evaluation/evaluate_models_10000.py` and run the hidden-state probes with `evaluation/validate_models_10000.py`.
 4. Reproduce the paper's tests with the scripts in `analysis/`.
 

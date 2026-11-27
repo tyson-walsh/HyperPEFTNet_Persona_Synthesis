@@ -1622,7 +1622,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument('--feature_exclude', type=str, nargs='*', default=['gstat_user_sent_*', 'gstat_gap_sentiment', 'gstat_beast_sent_*'], help='Glob patterns to exclude')
     ap.add_argument('--no_lists', action='store_true', help='Exclude list-valued gstat_* (use scalars only).')
     ap.add_argument('--init_features_json', type=str, default='', help='Optional JSON with ordered feature names (list[str] or list[dict]) used by k{N} profiles.')
-    ap.add_argument('--feature_profile', type=str, default='all', choices=['all', 'top10', 'k30', 'k20', 'k10', 'k6', 'k6v2', 'k5', 'k3', 'random10', 'drop_readability'], help="High-level feature selection profile. 'k{N}' uses init_features_json if provided, else top-N by variance.")
+    ap.add_argument('--feature_profile', type=str, default='k6v2', choices=['all', 'top10', 'k30', 'k20', 'k10', 'k6', 'k6v2', 'k5', 'k3', 'random10', 'drop_readability'], help="High-level feature selection profile. 'k{N}' uses init_features_json if provided, else top-N by variance.")
     ap.add_argument('--base_ckpt', type=str, default='EleutherAI/pythia-160m')
     choices = ['lora', 'adapter', 'bias'] + (['prefix'] if HAVE_PREFIX else [])
     ap.add_argument('--peft_head', type=str, default='lora', choices=choices)
