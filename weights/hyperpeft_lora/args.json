@@ -65,7 +65,7 @@
   "zscore_global": false,
   "zscore_center_only": false,
   "ctx_drift_coef": 1.0,
-  "out_dir": "./models_iui_k6v2/hyperpeft-lora-k6v2-s142",
+  "out_dir": "./models/hyperpeft-lora-s142",
   "log_file": "",
   "resume_from": "",
   "ckpt_every_steps": 1000,

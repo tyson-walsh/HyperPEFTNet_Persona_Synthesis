@@ -947,9 +947,7 @@ def _resolve_feature_profile(args: argparse.Namespace, df_tr: 'pd.DataFrame', gd
             k = int(m.group(1))
             if k <= 0:
                 raise ValueError(f'feature_profile={profile!r} implies non-positive K={k}')
-            if profile == 'k6' and (not init_list):
-                resolved_include = ['gstat_user_ttr', 'gstat_user_post_rate', 'gstat_user_subreddit_entropy', 'gstat_user_sr_max_share', 'gstat_punct_ratio', 'gstat_question_ratio']
-            elif profile == 'k6v2' and (not init_list):
+            if profile in ('k6', 'k6v2') and (not init_list):
                 resolved_include = ['gstat_user_ttr', 'gstat_firstperson_ratio', 'gstat_user_subreddit_entropy', 'gstat_user_sr_max_share', 'gstat_punct_ratio', 'gstat_question_ratio']
             elif profile == 'k10' and (not init_list):
                 resolved_include = ['gstat_punct_ratio', 'gstat_user_len_mean', 'gstat_readability_fk', 'gstat_ellipsis_ratio', 'gstat_user_ttr', 'gstat_emoticon_ratio', 'gstat_rep_bigram_ratio', 'gstat_profanity_ratio', 'gstat_firstperson_ratio', 'gstat_secondperson_ratio']
